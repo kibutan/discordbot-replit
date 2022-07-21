@@ -7,6 +7,7 @@ const {
   Intents,
   MessageAttachment,
 } = require("discord.js");
+const cron = require("node-cron");
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
@@ -27,7 +28,27 @@ client.on("messageCreate", async (message) => {
     }
 });
 
- 
+cron.schedule("* * * * *", async () => {
+  const sendmessage = await client.channels.cache.get("834044144162308120")
+    .send("スケジュール調整！")
+    .then(message => message.react("1⃣")
+      .then(() => message.react("2⃣"))
+      .then(() => message.react("3⃣"))
+      .then(() => message.react("4⃣"))
+      .then(() => message.react("5⃣"))
+      .then(() => message.react("6⃣"))
+      .then(() => message.react("7⃣"))
+      .then(() => message.react("8⃣"))
+      .then(() => message.react("9⃣"))
+      .then(() => message.react("🆎"))
+      .then(() => message.react("🇰"))
+      .then(() => message.react("🙌"))
+      .then(() => message.react("🙌"))
+      .then(() => message.react("🖖"))
+    )
+  
+});
+  
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 } catch (e) {
