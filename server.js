@@ -55,6 +55,29 @@ try {
   client.on("messageCreate", async (message) => {
     if (message.content === "pong") {
       message.reply("Pong" + postBody);
+    }if (message.content === "schedule"){
+      const sendmessage = await client.channels.cache
+      .get("851072678000328716")
+      .send("スケジュール調整！\n" + postBody + "\n ❌:全部無理")
+      .then(
+        (message) =>
+          message
+            .react("1⃣")
+            .then(() => message.react("2⃣"))
+            .then(() => message.react("3⃣"))
+            .then(() => message.react("4⃣"))
+            .then(() => message.react("5⃣"))
+            .then(() => message.react("6⃣"))
+            .then(() => message.react("7⃣"))
+            .then(() => message.react("8⃣"))
+            .then(() => message.react("9⃣"))
+            .then(() => message.react("🇦"))
+            .then(() => message.react("🇧"))
+            .then(() => message.react("🇨"))
+            .then(() => message.react("🇩"))
+            .then(() => message.react("🇪"))
+            .then(() => message.react("❌"))
+      );
     }
   });
 
